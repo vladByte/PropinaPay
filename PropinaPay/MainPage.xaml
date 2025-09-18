@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PropinaPay.MainPage"
+             BackgroundColor="#323232">
+
+
+    <ContentPage.Resources>
+        <Color x:Key="SectionsColor">#444</Color>
+        <Color x:Key="LightFont">#d6d6d6</Color>
+        <Color x:Key="DarkFont">#4fd8eb</Color>
+    </ContentPage.Resources>
+</ContentPage>
