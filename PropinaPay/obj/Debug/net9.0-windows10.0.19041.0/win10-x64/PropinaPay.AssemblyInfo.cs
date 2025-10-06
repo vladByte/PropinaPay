@@ -17,7 +17,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PropinaPay")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+4df1837f6fead869573cc19c9f799c5b0f3dcd5d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+18a7c427cabd0d5b3b7e1034d0232faccd09a044")]
 [assembly: System.Reflection.AssemblyProductAttribute("PropinaPay")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PropinaPay")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
