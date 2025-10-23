@@ -52,3 +52,43 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# -----------------------------
+# IDE / OS
+# -----------------------------
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.DotSettings.user
+
+# Rider
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# -----------------------------
+# MAUI / Xamarin / Mobile build artifacts
+# -----------------------------
+# Ignore build outputs and platform-specific packages
+**/bin/
+**/obj/
+*.apk
+*.apks
+*.aab
+*.idsig
+*.pdb
+*.runtimeconfig.json
+
+# Android intermediate/libraries zips
+**/res.zip
+
+# iOS / MacCatalyst
+*.app
+*.ipa
+
+# Keep the list minimal and rely on the generic bin/obj ignores above.

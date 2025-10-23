@@ -16,7 +16,7 @@
             <RowDefinition Height=".3*"></RowDefinition>
             <RowDefinition Height=".7*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Border Padding="20"
+        <Border Grid.Row="0" Padding="20"
                 BackgroundColor="{StaticResource SectionsColor}"
                 Stroke="Transparent" />
         <Grid Grid.Row="0">
@@ -72,40 +72,48 @@
 
         </Grid> <!--/ Row 0 -->
 
-        <Grid Grid.Row="1" 
-              Margin="0,15,0,0">
+        <Grid Grid.Row="1" Margin="0,15,0,0">
             
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width=".3*"></ColumnDefinition>
                 <ColumnDefinition Width=".7*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            
             <Grid.RowDefinitions>
                 <RowDefinition> </RowDefinition>
                 <RowDefinition> </RowDefinition>
                 <RowDefinition> </RowDefinition>
                 <RowDefinition> </RowDefinition>
-                
             </Grid.RowDefinitions>
             
-            <Label Text="Enter your bill: $0.00"
+            <Label Grid.Row="0" Grid.Column="0" Text="Enter your bill: $0.00"
                    TextColor="{StaticResource LightFont}"
                    BackgroundColor="CornflowerBlue"
                    />
             <Entry x:Name="TxtBill" 
+                   Grid.Row="0"  
                    Grid.Column="1"
                    BackgroundColor="{StaticResource SectionsColor}"
                    Keyboard="Numeric"
                    Text="0.00"
                    TextColor="{StaticResource LightFont}"
                    VerticalOptions="Center"/>
-            <Label Text="Choose your Tip" 
+            <Label Grid.Row="1" Grid.Column="0" Text="Choose your Tip" 
                    BackgroundColor="CornflowerBlue"/>
-            <Label Text="Tip 0%" 
-                   BackgroundColor="CornflowerBlue"/>
-            <Label Text="Split the total" 
-                   BackgroundColor="CornflowerBlue"/>
-          
+            <Label Grid.Row="2" Grid.Column="1" Text="Tip 0%" 
+                   BackgroundColor="YellowGreen"/>
+            <Label Grid.Row="2" Grid.Column="1" Text="Split the total" 
+                   BackgroundColor="Crimson"/> 
         </Grid>
+        
+        <Image Grid.Row="1" Grid.Column="1"
+               Source="logo.png"
+               IsAnimationPlaying="True"
+               WidthRequest="100"
+               HeightRequest="100"
+               HorizontalOptions="Center">
+            
+        </Image>
         
     </Grid> <!--/ Main Grid -->
 </ContentPage>
