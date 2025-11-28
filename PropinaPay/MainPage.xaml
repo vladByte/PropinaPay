@@ -11,109 +11,126 @@
         <Color x:Key="DarkFont">#4fd8eb</Color>
     </ContentPage.Resources>
 
-    <Grid Margin="15">
+    <!-- region: MainGrid [R0=Resumen, R1=Entradas] -->
+    <Grid x:Name="MainGrid" Margin="15">
         <Grid.RowDefinitions>
-            <RowDefinition Height=".3*"></RowDefinition>
-            <RowDefinition Height=".7*"></RowDefinition>
+            <RowDefinition Height=".3*"/>
+            <RowDefinition Height=".7*"/>
         </Grid.RowDefinitions>
+
+        <!-- section: [MainGrid:R0] Resumen por persona -->
         <Border Grid.Row="0" Padding="20"
                 BackgroundColor="{StaticResource SectionsColor}"
                 Stroke="Transparent" />
-        <Grid Grid.Row="0">
+
+        <Grid Grid.Row="0" x:Name="TotalsGrid">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="1"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="1"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height=".1*"></RowDefinition>
-                <RowDefinition Height=".9*"></RowDefinition>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height=".9*"/>
             </Grid.RowDefinitions>
+
+            <!-- [TotalsGrid:R0:C0-2] Título -->
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
                    FontAttributes="Bold"
                    Padding="3"
                    HorizontalTextAlignment="Center"
                    Text="TOTAL  P / PERSON"
                    TextColor="{StaticResource DarkFont}" />
-            <Label Grid.Column="0" x:Name="LblTotal" Grid.Row="1"
+
+            <!-- [TotalsGrid:R1:C0] Total por persona -->
+            <Label x:Name="LblTotal" Grid.Row="1" Grid.Column="0"
                    FontAttributes="Bold"
                    FontSize="35"
                    HorizontalTextAlignment="Center"
                    Text="0.00$"
                    TextColor="{StaticResource LightFont}"
                    VerticalOptions="Center" />
-            <BoxView
-                Grid.Row="1"
-                Grid.Column="1"
-                Color="#adadad"
-                Margin="0,10,0,0"
-                VerticalOptions="Fill"
-                HorizontalOptions="Fill" />
-            <VerticalStackLayout
-                Grid.Row="1"
-                Grid.Column="2" 
-                HorizontalOptions="Center"
-                VerticalOptions="Center">
+
+            <!-- [TotalsGrid:R1:C1] Separador vertical -->
+            <BoxView Grid.Row="1" Grid.Column="1"
+                     Color="#adadad"
+                     Margin="0,10,0,0"
+                     VerticalOptions="Fill"
+                     HorizontalOptions="Fill" />
+
+            <!-- [TotalsGrid:R1:C2] Subtotales -->
+            <VerticalStackLayout Grid.Row="1" Grid.Column="2"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center">
                 <Label Text="SUBTOTAL"
                        TextColor="{StaticResource LightFont}"
-                       FontAttributes="Bold"/>
+                       FontAttributes="Bold"
+                       Padding="2"/>
                 <Label x:Name="LblSubTotal"
                        Text="0.00$"
                        TextColor="{StaticResource LightFont}"
                        Padding="2"/>
                 <Label Text="TIP"
                        TextColor="{StaticResource LightFont}"
-                       FontAttributes="Bold"/>
-                <Label x:Name="LblTipByPerson" 
+                       FontAttributes="Bold"
+                       Padding="2"/>
+                <Label x:Name="LblTipByPerson"
                        Text="0.00$"
                        TextColor="{StaticResource LightFont}"
                        Padding="2"/>
             </VerticalStackLayout>
+        </Grid>
+        <!-- endsection: [MainGrid:R0] -->
 
-        </Grid> <!--/ Row 0 -->
-
-        <Grid Grid.Row="1" Margin="0,15,0,0">
-            
+        <!-- section: [MainGrid:R1] Entradas y controles -->
+        <Grid x:Name="InputsGrid" Grid.Row="1" Margin="0,15,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width=".3*"></ColumnDefinition>
-                <ColumnDefinition Width=".7*"></ColumnDefinition>
+                <ColumnDefinition Width=".3*"/>
+                <ColumnDefinition Width=".7*"/>
             </Grid.ColumnDefinitions>
-            
             <Grid.RowDefinitions>
-                <RowDefinition> </RowDefinition>
-                <RowDefinition> </RowDefinition>
-                <RowDefinition> </RowDefinition>
-                <RowDefinition> </RowDefinition>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
-            
+
+            <!-- [InputsGrid:R0:C0-1] Monto -->
             <Label Grid.Row="0" Grid.Column="0" Text="Enter your bill: $0.00"
                    TextColor="{StaticResource LightFont}"
-                   BackgroundColor="CornflowerBlue"
-                   />
-            <Entry x:Name="TxtBill" 
-                   Grid.Row="0"  
-                   Grid.Column="1"
+                   BackgroundColor="CornflowerBlue"/>
+            <Entry x:Name="TxtBill"
+                   Grid.Row="0" Grid.Column="1"
                    BackgroundColor="{StaticResource SectionsColor}"
                    Keyboard="Numeric"
-                   Text="0.00"
+                   Text="0.00x"
                    TextColor="{StaticResource LightFont}"
                    VerticalOptions="Center"/>
-            <Label Grid.Row="1" Grid.Column="0" Text="Choose your Tip" 
-                   BackgroundColor="CornflowerBlue"/>
-            <Label Grid.Row="2" Grid.Column="1" Text="Tip 0%" 
+
+            <!-- [InputsGrid:R1:C0] Título Tip -->
+            <Label Grid.Row="1" Grid.Column="0" Text="Choose your Tip"
+                   BackgroundColor="CadetBlue"
+                   TextColor="{StaticResource LightFont}"/>
+            
+
+            <!-- [InputsGrid:R2:C0] Valor Tip -->
+            <Label Grid.Row="2" Grid.Column="0" Text="Tip 0%"
                    BackgroundColor="YellowGreen"/>
-            <Label Grid.Row="2" Grid.Column="1" Text="Split the total" 
-                   BackgroundColor="Crimson"/> 
+
+            <!-- [InputsGrid:R3:C0] Split -->
+            <Label Grid.Row="3" Grid.Column="0" Text="Split the total"
+                   BackgroundColor="Crimson"/>
         </Grid>
-        
-        <Image Grid.Row="1" Grid.Column="1"
+        <!-- endsection: [MainGrid:R1] -->
+
+        <!-- decor: [MainGrid:R1] Logo -->
+        <Image Grid.Row="1"
                Source="logo.png"
                IsAnimationPlaying="True"
                WidthRequest="100"
                HeightRequest="100"
-               HorizontalOptions="Center">
-            
-        </Image>
-        
-    </Grid> <!--/ Main Grid -->
+               HorizontalOptions="Center"/>
+
+    </Grid>
+    <!-- endregion: MainGrid -->
 </ContentPage>
