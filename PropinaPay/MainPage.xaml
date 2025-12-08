@@ -96,30 +96,72 @@
             </Grid.RowDefinitions>
 
             <!-- [InputsGrid:R0:C0-1] Monto -->
-            <Label Grid.Row="0" Grid.Column="0" Text="Enter your bill: $0.00"
+            <Label Grid.Row="0" Grid.Column="0" Text="Enter your bill: $"
                    TextColor="{StaticResource LightFont}"
-                   BackgroundColor="CornflowerBlue"/>
+                   BackgroundColor="CornflowerBlue"
+                   VerticalOptions="Center"/>
+            
             <Entry x:Name="TxtBill"
                    Grid.Row="0" Grid.Column="1"
                    BackgroundColor="{StaticResource SectionsColor}"
                    Keyboard="Numeric"
-                   Text="0.00x"
+                   Text="0.00"
                    TextColor="{StaticResource LightFont}"
-                   VerticalOptions="Center"/>
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Completed="TxtBill_OnCompleted"/>
 
             <!-- [InputsGrid:R1:C0] Título Tip -->
             <Label Grid.Row="1" Grid.Column="0" Text="Choose your Tip"
-                   BackgroundColor="CadetBlue"
+                   TextColor="{StaticResource LightFont}"
+                   VerticalOptions="Center"/>
+            
+            <!-- [Group of Buttons:R1:C1] Button -->
+                <HorizontalStackLayout 
+                    Grid.Row="1" Grid.Column="1"
+                    HeightRequest="70"
+                    HorizontalOptions="Center"
+                    Spacing="10">
+                    <Button Text="10%" WidthRequest="70" Clicked="Button_OnClicked"/>
+                    <Button Text="15%" WidthRequest="70" Clicked="Button_OnClicked"/>
+                    <Button Text="20%" WidthRequest="70" Clicked="Button_OnClicked"/>
+                </HorizontalStackLayout>
+            
+            <!-- [InputsGrid:R2:C0] Valor Tip -->
+            <Label x:Name="lblTip" Grid.Row="2" Grid.Column="0" Text="Tip 0%"
+                   VerticalOptions="Center"
                    TextColor="{StaticResource LightFont}"/>
             
-
-            <!-- [InputsGrid:R2:C0] Valor Tip -->
-            <Label Grid.Row="2" Grid.Column="0" Text="Tip 0%"
-                   BackgroundColor="YellowGreen"/>
+            <Slider x:Name="sldTip" 
+                    Grid.Row="2" Grid.Column="1"
+                    Maximum="50"
+                    Minimum="0"
+                    ValueChanged="SldTip__OnValueChanged"/>
 
             <!-- [InputsGrid:R3:C0] Split -->
             <Label Grid.Row="3" Grid.Column="0" Text="Split the total"
-                   BackgroundColor="Crimson"/>
+                   BackgroundColor="Crimson"
+                   VerticalOptions="Center"
+                   TextColor="{StaticResource LightFont}"/>
+            
+            <!-- [Grid:R3:C0] SplitBtn -->
+            <HorizontalStackLayout Grid.Row="3" Grid.Column="1" 
+                                   HorizontalOptions="Center" 
+                                   VerticalOptions="Center">
+                
+                <Button x:Name="btnMinus" Text="-" WidthRequest="70" HeightRequest="50"  />
+                
+                <Label x:Name="lblSplit" 
+                       Text="1" 
+                       WidthRequest="70" 
+                       HeightRequest="30" 
+                       HorizontalTextAlignment="Center" 
+                       TextColor="{StaticResource LightFont}"/>
+                
+                <Button x:Name="btnPlus" Text="+" WidthRequest="70" HeightRequest="20"/>    
+            </HorizontalStackLayout>
+            
+            
         </Grid>
         <!-- endsection: [MainGrid:R1] -->
 
