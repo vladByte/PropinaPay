@@ -37,7 +37,7 @@
             <!-- [TotalsGrid:R0:C0-2] Título -->
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
                    FontAttributes="Bold"
-                   Padding="3"
+                   Padding="1"
                    HorizontalTextAlignment="Center"
                    Text="TOTAL  P / PERSON"
                    TextColor="{StaticResource DarkFont}" />
@@ -96,9 +96,9 @@
             </Grid.RowDefinitions>
 
             <!-- [InputsGrid:R0:C0-1] Monto -->
-            <Label Grid.Row="0" Grid.Column="0" Text="Enter your bill: $"
+            <Label Grid.Row="0" Grid.Column="0" Text="Enter your bill:"
                    TextColor="{StaticResource LightFont}"
-                   BackgroundColor="CornflowerBlue"
+                   
                    VerticalOptions="Center"/>
             
             <Entry x:Name="TxtBill"
@@ -140,7 +140,6 @@
 
             <!-- [InputsGrid:R3:C0] Split -->
             <Label Grid.Row="3" Grid.Column="0" Text="Split the total"
-                   BackgroundColor="Crimson"
                    VerticalOptions="Center"
                    TextColor="{StaticResource LightFont}"/>
             
@@ -149,7 +148,7 @@
                                    HorizontalOptions="Center" 
                                    VerticalOptions="Center">
                 
-                <Button x:Name="btnMinus" Text="-" WidthRequest="70" HeightRequest="50"  />
+                <Button x:Name="btnMinus" Text="-" WidthRequest="70" HeightRequest="50"  Clicked="BtnMinus_OnClicked" />
                 
                 <Label x:Name="lblSplit" 
                        Text="1" 
@@ -158,7 +157,7 @@
                        HorizontalTextAlignment="Center" 
                        TextColor="{StaticResource LightFont}"/>
                 
-                <Button x:Name="btnPlus" Text="+" WidthRequest="70" HeightRequest="20"/>    
+                <Button x:Name="btnPlus" Text="+" WidthRequest="70" HeightRequest="20" Clicked="BtnPlus_OnClicked"/>    
             </HorizontalStackLayout>
             
             
